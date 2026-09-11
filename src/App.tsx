@@ -1091,42 +1091,42 @@ export default function App() {
   return (
     <div className="flex flex-col h-screen w-screen bg-slate-950 text-slate-100 overflow-hidden select-none font-sans">
       {/* TOP BAR / STUDIO HEADER */}
-      <header className="h-12 sm:h-14 bg-slate-900/95 border-b border-slate-800 px-3 sm:px-4 flex items-center justify-between z-30 shrink-0 backdrop-blur">
+      <header className="h-10 sm:h-14 bg-slate-900/95 border-b border-slate-800 px-1.5 sm:px-4 flex items-center justify-between z-30 shrink-0 backdrop-blur">
         {/* Title and Region */}
-        <div className="flex items-center gap-2.5">
-          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 font-black text-sm sm:text-base shadow">
+        <div className="flex items-center gap-1.5 sm:gap-2.5 min-w-0">
+          <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-md sm:rounded-lg bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 font-black text-xs sm:text-base shadow shrink-0">
             G4
           </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-xs sm:text-sm font-bold text-amber-200 tracking-wide font-sans truncate">
+          <div className="min-w-0">
+            <div className="flex items-center gap-1 sm:gap-2">
+              <h1 className="text-[10px] sm:text-sm font-bold text-amber-200 tracking-wide font-sans truncate max-w-[90px] sm:max-w-none">
                 Godot 4 2D RPG Studio
               </h1>
               <span className="hidden md:inline-block text-[9px] uppercase font-mono px-1.5 py-0.5 rounded bg-amber-950/80 text-amber-300 border border-amber-800">
                 Gothic Horror Edition
               </span>
             </div>
-            <div className="flex items-center gap-1 text-[10px] text-slate-400 font-mono">
-              <MapPin className="w-3 h-3 text-red-400" />
-              <span className="text-slate-300 font-semibold">{activeRegion}</span>
+            <div className="flex items-center gap-1 text-[8px] sm:text-[10px] text-slate-400 font-mono">
+              <MapPin className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-red-400 shrink-0" />
+              <span className="text-slate-300 font-semibold truncate">{activeRegion}</span>
             </div>
           </div>
         </div>
 
         {/* Quick Top Controls */}
-        <div className="flex items-center gap-1.5 sm:gap-2">
+        <div className="flex items-center gap-1 sm:gap-2 shrink-0">
           {/* HD Toggle */}
           <button
             id="toggle-hd-btn"
             onClick={toggleHDMode}
-            className={`px-2 py-1 rounded-md text-[11px] font-mono border flex items-center gap-1 transition ${
+            className={`p-1 sm:px-2 sm:py-1 rounded-md text-[9px] sm:text-[11px] font-mono border flex items-center gap-1 transition ${
               isHDMode
                 ? 'bg-sky-950/80 border-sky-600 text-sky-300'
                 : 'bg-slate-800 border-slate-700 text-slate-400'
             }`}
             title="Toggle Resolusi HD (480x270 vs 320x180)"
           >
-            <Tv className="w-3.5 h-3.5 text-sky-400" />
+            <Tv className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-sky-400" />
             <span className="hidden sm:inline">{isHDMode ? 'HD 480p' : 'Piksel 180p'}</span>
           </button>
 
@@ -1134,14 +1134,14 @@ export default function App() {
           <button
             id="toggle-blood-moon-btn"
             onClick={toggleBloodMoon}
-            className={`p-1.5 rounded-md border text-xs transition ${
+            className={`p-1 sm:p-1.5 rounded-md border text-xs transition ${
               isBloodMoon
                 ? 'bg-red-950/80 border-red-600 text-red-300 shadow-md shadow-red-950'
                 : 'bg-slate-800 border-slate-700 text-slate-400'
             }`}
             title="Toggle Suasana Purnama Darah (Blood Moon)"
           >
-            <Moon className="w-3.5 h-3.5 text-red-400" />
+            <Moon className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-red-400" />
           </button>
 
           {/* Save / Load Buttons */}
@@ -1151,18 +1151,18 @@ export default function App() {
               handleAutoSaveGame();
               addNotification('💾 Permainan berhasil disimpan!', 'success');
             }}
-            className="p-1.5 rounded-md bg-slate-800 hover:bg-slate-700 border border-slate-700 text-emerald-400 hover:text-emerald-300 transition"
+            className="p-1 sm:p-1.5 rounded-md bg-slate-800 hover:bg-slate-700 border border-slate-700 text-emerald-400 hover:text-emerald-300 transition"
             title="Simpan Permainan"
           >
-            <Save className="w-3.5 h-3.5" />
+            <Save className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
           </button>
           <button
             id="quick-load-btn"
             onClick={handleLoadGame}
-            className="p-1.5 rounded-md bg-slate-800 hover:bg-slate-700 border border-slate-700 text-amber-400 hover:text-amber-300 transition"
+            className="p-1 sm:p-1.5 rounded-md bg-slate-800 hover:bg-slate-700 border border-slate-700 text-amber-400 hover:text-amber-300 transition"
             title="Muat Data Simpanan"
           >
-            <Download className="w-3.5 h-3.5" />
+            <Download className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
           </button>
 
           {/* Dungeon 100 Floors Modal Button */}
@@ -1170,20 +1170,21 @@ export default function App() {
             <button
               id="exit-dungeon-header-btn"
               onClick={handleExitDungeon}
-              className="px-2.5 py-1 rounded-md bg-red-800 hover:bg-red-700 text-white text-xs font-semibold flex items-center gap-1.5 transition shadow animate-pulse"
+              className="px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-red-800 hover:bg-red-700 text-white text-[10px] sm:text-xs font-semibold flex items-center gap-1 transition shadow animate-pulse"
               title="Keluar dari Menara kembali ke Lobi Suaka"
             >
-              <Castle className="w-3.5 h-3.5" />
-              <span>Keluar Lobi (Lt. {dungeonFloor})</span>
+              <Castle className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+              <span className="hidden xs:inline">Keluar (Lt. {dungeonFloor})</span>
+              <span className="xs:hidden">Lt.{dungeonFloor}</span>
             </button>
           ) : (
             <button
               id="open-dungeon-header-btn"
               onClick={() => setShowDungeonModal(true)}
-              className="px-2.5 py-1 rounded-md bg-gradient-to-r from-amber-700 to-yellow-600 hover:from-amber-600 hover:to-yellow-500 border border-amber-400/80 text-amber-950 text-xs font-bold flex items-center gap-1.5 transition shadow"
+              className="px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-gradient-to-r from-amber-700 to-yellow-600 hover:from-amber-600 hover:to-yellow-500 border border-amber-400/80 text-amber-950 text-[10px] sm:text-xs font-bold flex items-center gap-1 transition shadow"
               title="Buka Menu Menara 100 Lantai (Dungeon Master)"
             >
-              <Castle className="w-3.5 h-3.5 text-amber-950" />
+              <Castle className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-950" />
               <span className="hidden sm:inline">Menara 100 Lt</span>
             </button>
           ))}
@@ -1193,10 +1194,10 @@ export default function App() {
             <button
               id="open-enchanting-header-btn"
               onClick={() => setShowEnchantingModal(true)}
-              className="px-2.5 py-1 rounded-md bg-purple-950/90 hover:bg-purple-900 border border-purple-600/80 text-purple-200 text-xs font-semibold flex items-center gap-1.5 transition shadow"
+              className="px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-purple-950/90 hover:bg-purple-900 border border-purple-600/80 text-purple-200 text-[10px] sm:text-xs font-semibold flex items-center gap-1 transition shadow"
               title="Buka Bengkel Penempaan Senjata & Sumpah Suci Ksatria"
             >
-              <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-300" />
               <span className="hidden sm:inline">Enchanting</span>
             </button>
           )}
@@ -1205,9 +1206,9 @@ export default function App() {
           <button
             id="open-architecture-btn"
             onClick={() => setShowArchitecture((prev) => !prev)}
-            className="px-2.5 py-1 rounded-md bg-amber-600 hover:bg-amber-500 text-white text-xs font-semibold flex items-center gap-1.5 transition shadow-lg shadow-amber-950/40"
+            className="px-1.5 py-0.5 sm:px-2.5 sm:py-1 rounded-md bg-amber-600 hover:bg-amber-500 text-white text-[10px] sm:text-xs font-semibold flex items-center gap-1 transition shadow"
           >
-            <Code2 className="w-3.5 h-3.5" />
+            <Code2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             <span className="hidden sm:inline">Studio Godot 4</span>
           </button>
 
@@ -1218,10 +1219,10 @@ export default function App() {
               audioManager.playSelect();
               setShowGameplayGuide(true);
             }}
-            className="px-2.5 py-1 rounded-md bg-stone-800 hover:bg-stone-700 border border-amber-900/60 text-amber-300 text-xs font-semibold flex items-center gap-1.5 transition shadow"
+            className="p-1 sm:px-2.5 sm:py-1 rounded-md bg-stone-800 hover:bg-stone-700 border border-amber-900/60 text-amber-300 text-[10px] sm:text-xs font-semibold flex items-center gap-1 transition shadow"
             title="Panduan Gameplay & Kontrol"
           >
-            <BookOpen className="w-3.5 h-3.5 text-amber-400" />
+            <BookOpen className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-400" />
             <span className="hidden sm:inline">Panduan</span>
           </button>
 
@@ -1229,10 +1230,10 @@ export default function App() {
           <button
             id="open-main-menu-btn"
             onClick={handleReturnToMainMenu}
-            className="px-2.5 py-1 rounded-md bg-rose-950/90 hover:bg-rose-900 border border-rose-700 text-rose-200 text-xs font-semibold flex items-center gap-1.5 transition shadow-sm"
+            className="p-1 sm:px-2.5 sm:py-1 rounded-md bg-rose-950/90 hover:bg-rose-900 border border-rose-700 text-rose-200 text-[10px] sm:text-xs font-semibold flex items-center gap-1 transition shadow-sm"
             title="Keluar ke Menu Utama & Simpan Permainan"
           >
-            <LogOut className="w-3.5 h-3.5 text-rose-400" />
+            <LogOut className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-rose-400" />
             <span className="hidden sm:inline">Menu Utama</span>
           </button>
         </div>
@@ -1249,9 +1250,9 @@ export default function App() {
         />
 
         {/* HUD OVERLAYS (TOP-LEFT) */}
-        <div className="absolute top-2.5 left-2.5 z-20 flex flex-col gap-1.5 pointer-events-none">
+        <div className="absolute top-1.5 left-1.5 sm:top-2.5 sm:left-2.5 z-20 flex flex-col gap-1 sm:gap-1.5 pointer-events-none">
           {/* Player Identity & Compact Health Gauge */}
-          <div className="bg-slate-950/90 border border-amber-900/60 rounded-lg p-2 backdrop-blur-md shadow-lg max-w-[240px] pointer-events-auto select-none">
+          <div className="bg-slate-950/85 border border-amber-900/50 rounded-md sm:rounded-lg p-1.5 sm:p-2 backdrop-blur-md shadow-lg max-w-[155px] sm:max-w-[240px] pointer-events-auto select-none">
             {/* Player Name / Edit Bar */}
             {isEditingName ? (
               <form
@@ -1259,7 +1260,7 @@ export default function App() {
                   e.preventDefault();
                   handleSavePlayerName(tempName);
                 }}
-                className="flex items-center gap-1 mb-1.5"
+                className="flex items-center gap-1 mb-1"
               >
                 <input
                   id="player-name-input"
@@ -1271,31 +1272,31 @@ export default function App() {
                     if (e.key === 'Escape') setIsEditingName(false);
                   }}
                   autoFocus
-                  placeholder="Nama Ksatria..."
-                  className="w-full bg-slate-900 border border-amber-500 text-amber-100 text-xs px-1.5 py-0.5 rounded font-bold outline-none focus:ring-1 focus:ring-amber-400"
+                  placeholder="Nama..."
+                  className="w-full bg-slate-900 border border-amber-500 text-amber-100 text-[10px] sm:text-xs px-1 py-0.5 rounded font-bold outline-none focus:ring-1 focus:ring-amber-400"
                 />
                 <button
                   type="submit"
                   id="save-name-btn"
                   title="Simpan Nama"
-                  className="p-1 rounded bg-amber-600 hover:bg-amber-500 text-white transition"
+                  className="p-0.5 sm:p-1 rounded bg-amber-600 hover:bg-amber-500 text-white transition"
                 >
-                  <Check className="w-3 h-3" />
+                  <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                 </button>
                 <button
                   type="button"
                   id="cancel-name-btn"
                   title="Batal"
                   onClick={() => setIsEditingName(false)}
-                  className="p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
+                  className="p-0.5 sm:p-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition"
                 >
-                  <X className="w-3 h-3" />
+                  <X className="w-2.5 h-2.5 sm:w-3 sm:h-3" />
                 </button>
               </form>
             ) : (
-              <div className="flex items-center justify-between mb-1">
-                <div className="flex items-center gap-1.5 min-w-0">
-                  <span className="text-xs font-bold text-amber-100 truncate max-w-[110px]" title={playerName}>
+              <div className="flex items-center justify-between mb-0.5 sm:mb-1">
+                <div className="flex items-center gap-1 min-w-0">
+                  <span className="text-[10px] sm:text-xs font-bold text-amber-100 truncate max-w-[70px] sm:max-w-[110px]" title={playerName}>
                     {playerName}
                   </span>
                   <button
@@ -1307,28 +1308,28 @@ export default function App() {
                     title="Ubah Nama Karakter"
                     className="p-0.5 rounded text-amber-400/70 hover:text-amber-300 hover:bg-amber-950/60 transition"
                   >
-                    <Edit3 className="w-2.5 h-2.5" />
+                    <Edit3 className="w-2 h-2 sm:w-2.5 sm:h-2.5" />
                   </button>
-                  <span className="text-[9px] font-mono px-1 py-0.1 rounded bg-amber-950/80 text-amber-300 border border-amber-800/80 font-semibold">
+                  <span className="text-[8px] sm:text-[9px] font-mono px-0.5 sm:px-1 py-0.1 rounded bg-amber-950/80 text-amber-300 border border-amber-800/80 font-semibold">
                     Lv.{playerLevel}
                   </span>
                 </div>
-                <span className="text-[8.5px] font-mono text-amber-300/80 font-medium">Ksatria Putih</span>
+                <span className="hidden sm:inline text-[8.5px] font-mono text-amber-300/80 font-medium">Ksatria Putih</span>
               </div>
             )}
 
             {/* Health Bar (Red / Blood) */}
             <div className="space-y-0.5">
-              <div className="flex items-center justify-between text-[10px] font-mono leading-tight">
-                <span className="flex items-center gap-1 text-red-400 font-bold">
-                  <Heart className="w-2.5 h-2.5 fill-red-400" />
+              <div className="flex items-center justify-between text-[9px] sm:text-[10px] font-mono leading-tight">
+                <span className="flex items-center gap-0.5 sm:gap-1 text-red-400 font-bold">
+                  <Heart className="w-2 h-2 sm:w-2.5 sm:h-2.5 fill-red-400" />
                   HP
                 </span>
-                <span className="text-red-300 text-[9.5px]">
-                  {playerHp} / {playerMaxHp}
+                <span className="text-red-300 text-[8.5px] sm:text-[9.5px]">
+                  {playerHp}/{playerMaxHp}
                 </span>
               </div>
-              <div className="w-full h-2 bg-slate-900 rounded-full overflow-hidden border border-red-950/80 p-0.5">
+              <div className="w-full h-1.5 sm:h-2 bg-slate-900 rounded-full overflow-hidden border border-red-950/80 p-0.5">
                 <div
                   className="h-full bg-gradient-to-r from-red-600 via-rose-500 to-amber-500 rounded-full transition-all duration-300"
                   style={{ width: `${Math.max(0, Math.min(100, (playerHp / playerMaxHp) * 100))}%` }}
@@ -1337,14 +1338,14 @@ export default function App() {
             </div>
 
             {/* EXP Bar (Purple) */}
-            <div className="space-y-0.5 mt-1">
-              <div className="flex items-center justify-between text-[8px] font-mono text-slate-400 leading-none">
+            <div className="space-y-0.5 mt-0.5 sm:mt-1">
+              <div className="flex items-center justify-between text-[7px] sm:text-[8px] font-mono text-slate-400 leading-none">
                 <span>EXP</span>
                 <span>
                   {playerExp}/{playerNextExp}
                 </span>
               </div>
-              <div className="w-full h-1 bg-slate-900 rounded-full overflow-hidden">
+              <div className="w-full h-0.5 sm:h-1 bg-slate-900 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-purple-500 transition-all duration-300"
                   style={{ width: `${Math.max(0, Math.min(100, (playerExp / playerNextExp) * 100))}%` }}
@@ -1353,23 +1354,23 @@ export default function App() {
             </div>
 
             {/* Quick Stats Badges */}
-            <div className="flex items-center justify-between mt-1.5 pt-1 border-t border-slate-800/80 text-[9px] font-mono">
+            <div className="flex items-center justify-between mt-1 pt-0.5 sm:pt-1 border-t border-slate-800/80 text-[8px] sm:text-[9px] font-mono">
               <span className="flex items-center gap-0.5 text-rose-300" title="Kekuatan Serangan">
-                <Sword className="w-2.5 h-2.5 text-rose-400" />
+                <Sword className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-rose-400" />
                 {playerAttack}
               </span>
               <span className="flex items-center gap-0.5 text-sky-300" title="Pertahanan Armor">
-                <Shield className="w-2.5 h-2.5 text-sky-400" />
+                <Shield className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-sky-400" />
                 {playerDefense}
               </span>
               <span className="flex items-center gap-0.5 text-amber-300" title="Uang Koin Emas">
-                <Coins className="w-2.5 h-2.5 text-amber-400" />
+                <Coins className="w-2 h-2 sm:w-2.5 sm:h-2.5 text-amber-400" />
                 {playerGold}G
               </span>
             </div>
 
             {/* Combat Stance & Skill Indicators */}
-            <div className="grid grid-cols-4 gap-0.5 mt-1.5 pt-1 border-t border-slate-800/80 text-[8px] font-mono text-center">
+            <div className="grid grid-cols-4 gap-0.5 mt-1 pt-0.5 sm:pt-1 border-t border-slate-800/80 text-[7px] sm:text-[8px] font-mono text-center">
               <span
                 className={`py-0.5 rounded border transition-all ${
                   isParrying
@@ -1378,7 +1379,7 @@ export default function App() {
                 }`}
                 title="Tangkis Serangan [Q / C]"
               >
-                [Q] Parry
+                Parry
               </span>
               <span
                 className={`py-0.5 rounded border transition-all ${
@@ -1388,57 +1389,59 @@ export default function App() {
                 }`}
                 title="Tahan Tameng [Shift]"
               >
-                [Shift] Guard
+                Guard
               </span>
               <span
                 className="py-0.5 rounded bg-slate-900 text-amber-300/90 border border-amber-950 hover:border-amber-800 transition-colors"
                 title="Bilah Cahaya Fajar [R]"
               >
-                [R] Blade
+                Blade
               </span>
               <span
                 className="py-0.5 rounded bg-slate-900 text-sky-300/90 border border-sky-950 hover:border-sky-800 transition-colors"
                 title="Penghakiman Suci [F]"
               >
-                [F] Smite
+                Smite
               </span>
             </div>
           </div>
         </div>
 
         {/* HUD OVERLAYS (TOP-RIGHT QUICK ACTION BUTTONS) */}
-        <div className="absolute top-3 right-3 z-20 flex flex-col gap-1.5 items-end pointer-events-auto">
+        <div className="absolute top-1.5 right-1.5 sm:top-3 sm:right-3 z-20 flex flex-col gap-1 sm:gap-1.5 items-end pointer-events-auto">
           {/* Open Inventory Button */}
           <button
             id="hud-bag-btn"
             onClick={() => setShowInventory((prev) => !prev)}
-            className="px-3 py-1.5 rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-amber-700/60 text-amber-200 text-xs font-semibold flex items-center gap-2 backdrop-blur shadow-lg transition active:scale-95"
+            className="px-2 py-1 sm:px-3 sm:py-1.5 rounded-md sm:rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-amber-700/60 text-amber-200 text-[10px] sm:text-xs font-semibold flex items-center gap-1 sm:gap-2 backdrop-blur shadow-lg transition active:scale-95"
           >
-            <Package className="w-4 h-4 text-amber-400" />
-            <span>Tas Inventaris</span>
-            <span className="text-[10px] font-mono bg-slate-950 px-1 rounded text-slate-400">[I]</span>
+            <Package className="w-3 h-3 sm:w-4 sm:h-4 text-amber-400" />
+            <span className="hidden sm:inline">Tas Inventaris</span>
+            <span className="sm:hidden">Tas</span>
+            <span className="hidden sm:inline text-[10px] font-mono bg-slate-950 px-1 rounded text-slate-400">[I]</span>
           </button>
 
           {/* Open Grimoire Progression Button */}
           <button
             id="hud-grimoire-btn"
             onClick={() => setShowProgression((prev) => !prev)}
-            className="px-3 py-1.5 rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-purple-700/60 text-purple-200 text-xs font-semibold flex items-center gap-2 backdrop-blur shadow-lg transition active:scale-95"
+            className="px-2 py-1 sm:px-3 sm:py-1.5 rounded-md sm:rounded-lg bg-slate-900/90 hover:bg-slate-800 border border-purple-700/60 text-purple-200 text-[10px] sm:text-xs font-semibold flex items-center gap-1 sm:gap-2 backdrop-blur shadow-lg transition active:scale-95"
           >
-            <BookOpen className="w-4 h-4 text-purple-400" />
-            <span>Grimoire &amp; Skill</span>
-            <span className="text-[10px] font-mono bg-slate-950 px-1 rounded text-slate-400">[G]</span>
+            <BookOpen className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400" />
+            <span className="hidden sm:inline">Grimoire &amp; Skill</span>
+            <span className="sm:hidden">Grimoire</span>
+            <span className="hidden sm:inline text-[10px] font-mono bg-slate-950 px-1 rounded text-slate-400">[G]</span>
             {playerSp > 0 && (
-              <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+              <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-purple-400 animate-pulse" />
             )}
           </button>
 
           {/* Quick Engine Debug Controls Dropdown Pill */}
-          <div className="bg-slate-950/90 border border-slate-800 rounded-lg p-1.5 flex items-center gap-1 text-[11px] font-mono text-slate-400">
+          <div className="bg-slate-950/90 border border-slate-800 rounded-md sm:rounded-lg p-1 sm:p-1.5 flex items-center gap-1 text-[8px] sm:text-[11px] font-mono text-slate-400">
             <button
               id="toggle-ysort-btn"
               onClick={toggleYSort}
-              className={`px-1.5 py-0.5 rounded transition ${
+              className={`px-1 py-0.5 rounded transition ${
                 showYSortLines ? 'bg-emerald-950 text-emerald-300 border border-emerald-800' : 'hover:text-slate-200'
               }`}
               title="Garis Titik Poros Y-Sort [Y]"
@@ -1449,7 +1452,7 @@ export default function App() {
             <button
               id="toggle-chunks-btn"
               onClick={toggleChunks}
-              className={`px-1.5 py-0.5 rounded transition ${
+              className={`px-1 py-0.5 rounded transition ${
                 showChunks ? 'bg-purple-950 text-purple-300 border border-purple-800' : 'hover:text-slate-200'
               }`}
               title="Batas Area Chunks [C]"
@@ -1460,7 +1463,7 @@ export default function App() {
             <button
               id="toggle-lighting-btn"
               onClick={toggleLighting}
-              className={`px-1.5 py-0.5 rounded transition ${
+              className={`px-1 py-0.5 rounded transition ${
                 dynamicLighting ? 'text-amber-300' : 'text-slate-600 line-through'
               }`}
               title="Pencahayaan 2D PointLight [L]"
