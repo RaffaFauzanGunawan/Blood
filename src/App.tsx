@@ -1690,40 +1690,29 @@ export default function App() {
       <AnimatePresence>
         {regionBanner && (
           <motion.div
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, scale: 0.9, x: 50 }}
-            className="fixed bottom-12 right-12 z-40 flex flex-col items-end pointer-events-none"
+            initial={{ opacity: 0, y: -20, x: '-50%' }}
+            animate={{ opacity: 1, y: 0, x: '-50%' }}
+            exit={{ opacity: 0, scale: 0.95, y: -20 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
+            className="fixed top-12 sm:top-16 left-1/2 z-40 flex flex-col items-center pointer-events-none w-[90%] max-w-sm"
           >
-            <div className="bg-gradient-to-l from-[#1a0b2e]/90 to-transparent p-1 pl-20 rounded-l-full border-r-4 border-red-600 shadow-2xl backdrop-blur-sm">
-              <div className="flex flex-col items-end pr-6">
-                <div className="flex items-center gap-3 mb-1">
-                  <span className="text-[10px] font-mono font-black text-red-500 tracking-[0.3em] uppercase">
-                    Memasuki Wilayah
-                  </span>
-                  <div className="h-px w-12 bg-red-800" />
-                  <div className="px-2 py-0.5 rounded bg-red-950/60 border border-red-700/50 text-[9px] text-red-400 font-bold uppercase tracking-wider">
-                    {regionBanner.danger}
-                  </div>
-                </div>
-                <h2 className="font-serif text-4xl font-black text-white tracking-tight drop-shadow-lg italic">
-                  {regionBanner.name}
-                </h2>
-                <div className="h-px w-full bg-gradient-to-l from-red-600/60 to-transparent my-1.5" />
-                <p className="text-purple-300/80 text-xs font-medium tracking-wide">
-                  {regionBanner.subtitle}
-                </p>
-                {regionBanner.lore && (
-                  <p className="text-[10px] text-stone-500 mt-2 italic max-w-[280px] text-right leading-relaxed opacity-60">
-                    "{regionBanner.lore}"
+            <div className="bg-slate-950/95 border border-red-900/60 px-4 py-2 rounded-full shadow-xl backdrop-blur-md flex items-center justify-between gap-3 w-full">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <span className="text-[8px] font-mono font-bold text-red-500 uppercase tracking-wider shrink-0 bg-red-950/80 px-1.5 py-0.5 rounded border border-red-800/40">
+                  {regionBanner.danger}
+                </span>
+                <div className="min-w-0">
+                  <h2 className="font-serif text-xs sm:text-sm font-black text-white tracking-tight truncate">
+                    {regionBanner.name}
+                  </h2>
+                  <p className="text-purple-300/80 text-[9px] sm:text-[10px] font-medium tracking-wide truncate">
+                    {regionBanner.subtitle}
                   </p>
-                )}
+                </div>
               </div>
-            </div>
-            {/* Elegant Gothic Ornaments */}
-            <div className="mt-2 flex gap-1 items-center opacity-40">
-              <div className="w-1 h-1 rounded-full bg-red-500" />
-              <div className="w-16 h-px bg-gradient-to-l from-red-500 to-transparent" />
+              <span className="text-[7px] sm:text-[8px] font-mono text-stone-500 uppercase tracking-widest shrink-0 border-l border-slate-800 pl-2">
+                Wilayah
+              </span>
             </div>
           </motion.div>
         )}
