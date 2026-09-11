@@ -1,0 +1,6 @@
+{
+  "name": "Chronicles of Ravenfall: Gothic Arsenal",
+  "description": "2D RPG aksi Ksatria Berzirah Putih, Menara Dungeon 100 Lantai via NPC Dungeon Master dengan 10 lingkungan dan boss unik, mekanik Parry/Defense & Skill Khusus, serta Suaka Damai untuk Penempaan dan Sumpah Suci.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
